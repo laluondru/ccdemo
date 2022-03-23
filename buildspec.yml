@@ -6,6 +6,7 @@ phases:
       java: corretto11
     commands:
       - echo Nothing to do in the install phase...
+      - echo $(whoami)
   pre_build:
     commands:
       - pip3 install awscli --upgrade --user
