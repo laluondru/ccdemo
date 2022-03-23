@@ -6,7 +6,8 @@ phases:
       - echo Nothing to do in the install phase...
   pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - pip3 install awscli --upgrade --user
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
       - echo Build started on `date`
@@ -17,8 +18,8 @@ phases:
 artifacts:
   files:
     - 'target/ccdemo.war'
-    - 'appspec.yml'
-    - 'scripts/before_install.sh'
-    - 'scripts/after_install.sh'    
-    - 'scripts/start_server.sh'
-    - 'scripts/stop_server.sh'    
+      #- 'appspec.yml'
+      #- 'scripts/before_install.sh'
+      #- 'scripts/after_install.sh'    
+      #- 'scripts/start_server.sh'
+      #- 'scripts/stop_server.sh'    
