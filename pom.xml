@@ -8,11 +8,11 @@
 		<version>2.1.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.stacksimplify</groupId>
+	<groupId>com-stacksimplify</groupId>
 	<artifactId>ccdemo</artifactId>
-	<version>ccdemo</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>ccdemo</name>
+	<!--name>ccdemo</name-->
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -35,11 +35,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	           <dependency>
+	           <!--dependency>
   			<groupId>org.unbroken-dome.aws-codeartifact-maven-proxy</groupId>
   			<artifactId>aws-codeartifact-maven-proxy</artifactId>
   			<version>0.3.0</version>
-		    </dependency>
+		    </dependency-->
 	</dependencies>
 
 	<build>

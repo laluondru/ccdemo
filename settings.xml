@@ -2,8 +2,8 @@
 <settings>
  <servers>
    <server>
-    <id>maven-central-store</id>
-    <username>Lalu</username>
+    <id>cc-demo-maven</id>
+    <username>aws</username>
     <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
   </server>
 
