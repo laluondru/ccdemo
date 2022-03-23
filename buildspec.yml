@@ -9,7 +9,7 @@ phases:
   pre_build:
     commands:
       - pip3 install awscli --upgrade --user
-      - export CODEARTIFACT_AUTH_TOKEN=`aws --region us-east-2 codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
       - mvn -s settings.xml clean package deploy
