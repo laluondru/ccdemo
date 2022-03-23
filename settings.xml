@@ -9,44 +9,11 @@
   <servers>
    <server>
     <id>maven-central-store</id>
-    <username>aws</username>
+    <username>Lalu</username>
     <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
   </server>
 
   </servers>
-
-  
-  <mirrors>
-    <!-- mirror
-     | Specifies a repository mirror site to use instead of a given repository. The repository that
-     | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
-     | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
-     |
-    <mirror>
-      <id>mirrorId</id>
-      <mirrorOf>repositoryId</mirrorOf>
-      <name>Human Readable Name for this Mirror.</name>
-      <url>http://my.repository.com/repo/path</url>
-    </mirror>
-     -->
-  </mirrors>
-  
-  
-  <profiles>
-
-  <profile>
-    <id>ccdemo-cc-demo-maven</id>
-    <activation>
-      <activeByDefault>true</activeByDefault>
-    </activation>
-    <repositories>
-      <repository>
-        <id>maven-central-store</id>
-        <url>https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/maven-central-store/</url>
-      </repository>
-    </repositories>
-  </profile>
-</profiles>
 
   
 </settings>
