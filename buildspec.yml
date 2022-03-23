@@ -2,22 +2,25 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      java: corretto11
     commands:
       - echo Nothing to do in the install phase...
   pre_build:
     commands:
       - pip3 install awscli --upgrade --user
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
+      - export CODEARTIFACT_AUTH_TOKEN=`aws --region us-east-2 codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
-      - echo Build started on `date`
-      - mvn install
+      - mvn --no-transfer-progress versions:set -DnewVersion=$STAMP
+      - mvn --no-transfer-progress -s settings.xml clean package deploy
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
     - 'target/ccdemo.war'
+  name: ccdemo.war  
       #- 'appspec.yml'
       #- 'scripts/before_install.sh'
       #- 'scripts/after_install.sh'    
