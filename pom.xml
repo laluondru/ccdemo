@@ -35,6 +35,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	           <dependency>
+  			<groupId>org.unbroken-dome.aws-codeartifact-maven-proxy</groupId>
+  			<artifactId>aws-codeartifact-maven-proxy</artifactId>
+  			<version>0.3.0</version>
+		    </dependency>
 	</dependencies>
 
 	<build>
