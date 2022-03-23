@@ -6,13 +6,14 @@ phases:
       java: corretto11
     commands:
       - echo Nothing to do in the install phase...
+      - echo $(whoami)
   pre_build:
     commands:
       - pip3 install awscli --upgrade --user
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
-      - mvn -s settings.xml clean package deploy
+      - sudo mvn -s settings.xml clean package deploy
       
   post_build:
     commands:
