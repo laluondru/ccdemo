@@ -12,8 +12,7 @@ phases:
       - export CODEARTIFACT_AUTH_TOKEN=`aws --region us-east-2 codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
-      - mvn --no-transfer-progress versions:set -DnewVersion=$STAMP
-      - mvn --no-transfer-progress -s settings.xml clean package deploy
+      
   post_build:
     commands:
       - echo Build completed on `date`
