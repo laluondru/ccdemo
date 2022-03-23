@@ -12,13 +12,7 @@ phases:
       - export CODEARTIFACT_AUTH_TOKEN=`aws --region us-east-2 codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
-      - mvn deploy:deploy-file -DgroupId=com.stackssimplify        \
-      -DartifactId=ccdemo       \
-      -Dversion=1.4                  \
-      -Dfile=./ccdemo.war   \
-      -Dpackaging=war                \
-      -DrepositoryId=cc-demo-maven    \
-      -Durl=https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/cc-demo-maven/
+      - mvn deploy:deploy-file -DgroupId=com.stackssimplify -DartifactId=ccdemo -Dversion=1.4 -Dfile=./ccdemo.war -Dpackaging=war -DrepositoryId=cc-demo-maven -Durl=https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/cc-demo-maven/
       
   post_build:
     commands:
