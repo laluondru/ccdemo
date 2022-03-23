@@ -12,15 +12,15 @@ phases:
       - export CODEARTIFACT_AUTH_TOKEN=`aws --region us-east-2 codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
-      - mvn clean package install -DgroupId=com.stackssimplify -DartifactId=ccdemo -Dversion=1.4 -Dfile=./ccdemo.war -Dpackaging=war -DrepositoryId=cc-demo-maven -Durl=https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/cc-demo-maven/
+      - mvn -s settings.xml clean package deploy
       
   post_build:
     commands:
       - echo Build completed on `date`
-artifacts:
-  files:
+#artifacts:
+ # files:
     - 'target/ccdemo.war'
-  name: ccdemo.war  
+  #name: ccdemo.war  
       #- 'appspec.yml'
       #- 'scripts/before_install.sh'
       #- 'scripts/after_install.sh'    
