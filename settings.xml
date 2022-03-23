@@ -8,7 +8,7 @@
 
   <servers>
    <server>
-    <id>ccdemo-cc-demo-maven</id>
+    <id>maven-central-store</id>
     <username>aws</username>
     <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
   </server>
@@ -41,8 +41,8 @@
     </activation>
     <repositories>
       <repository>
-        <id>ccdemo-cc-demo-maven</id>
-        <url>https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/cc-demo-maven/</url>
+        <id>maven-central-store</id>
+        <url>https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/maven-central-store/</url>
       </repository>
     </repositories>
   </profile>
