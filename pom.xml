@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.stacksimplify</groupId>
 	<artifactId>ccdemo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>ccdemo</version>
 	<packaging>war</packaging>
 	<name>ccdemo</name>
 	<description>Demo project for Spring Boot</description>
@@ -48,9 +48,9 @@
 	</build>
 <repositories>
 	<repository>
-    <id>ccdemo-cc-demo-maven</id>
-    <name>ccdemo-cc-demo-maven</name>
-    <url>https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/cc-demo-maven/</url>
+    <id>maven-central-store</id>
+    <name>maven-central-store</name>
+    <url>https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/maven-central-store/</url>
   </repository>	
 </repositories>	
 	
