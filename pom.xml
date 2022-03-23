@@ -62,8 +62,8 @@
 	
 <distributionManagement>
   <repository>
-    <id>ccdemo-cc-demo-maven</id>
-    <name>ccdemo-cc-demo-maven</name>
+    <id>cc-demo-maven</id>
+    <name>cc-demo-maven</name>
     <url>https://ccdemo-396462374546.d.codeartifact.us-east-2.amazonaws.com/maven/cc-demo-maven/</url>
   </repository>
 </distributionManagement>
