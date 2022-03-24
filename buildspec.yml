@@ -12,7 +12,7 @@ phases:
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain ccdemo --domain-owner 396462374546 --query authorizationToken --output text`
   build:
     commands:
-      - sudo mvn -s settings.xml clean package deploy
+      - mvn -s settings.xml clean package deploy
       
   post_build:
     commands:
