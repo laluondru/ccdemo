@@ -1,0 +1,982 @@
+commit e4367ca03783eec21adba7f53fb9d2b6aee0b321
+Author: laluondru <lalup7062@gmail.com>
+Date:   Sun Sep 18 19:24:37 2022 +0530
+
+    3rd commit
+
+diff --git a/test3 b/test3
+index 0dd0b47..1546691 100644
+--- a/test3
++++ b/test3
+@@ -1,2 +1,3 @@
+ testing1
+ testing2
++testing3
+
+commit 96cb0e0d1f5e185039907a50ea7237ec1327ead5
+Author: laluondru <lalup7062@gmail.com>
+Date:   Sun Sep 18 16:32:37 2022 +0530
+
+    2nd commit
+
+diff --git a/test3 b/test3
+index 0aa6392..0dd0b47 100644
+--- a/test3
++++ b/test3
+@@ -1 +1,2 @@
+ testing1
++testing2
+
+commit 19fab502b84676b97dc63ecf8bd157d8106227fc
+Author: laluondru <lalup7062@gmail.com>
+Date:   Sun Sep 18 16:25:18 2022 +0530
+
+    1st commit
+
+diff --git a/test3 b/test3
+new file mode 100644
+index 0000000..0aa6392
+--- /dev/null
++++ b/test3
+@@ -0,0 +1 @@
++testing1
+
+commit 8fb9111c7baff4bc6b0e7abca1d3d2b063d88269
+Merge: ee0844f cb44702
+Author: Lalu Ondru <75995685+laluondru@users.noreply.github.com>
+Date:   Wed Mar 23 13:11:46 2022 +0530
+
+    Merge pull request #3 from laluondru/main
+    
+    Update appspec.yml
+
+commit cb44702d4a7adace6c2f528d171b8daf815e0607
+Author: Lalu Ondru <75995685+laluondru@users.noreply.github.com>
+Date:   Wed Mar 23 13:06:57 2022 +0530
+
+    Update appspec.yml
+
+diff --git a/appspec.yml b/appspec.yml
+index 8ccca60..77e2d56 100644
+--- a/appspec.yml
++++ b/appspec.yml
+@@ -3,7 +3,7 @@ version: 0.0
+ os: linux
+ files:
+   - source: target/ccdemo.war
+-    destination: /usr/share/tomcat8/webapps/
++    destination: /var/lib/tomcat/webapps/
+ hooks:
+   BeforeInstall:
+     - location: scripts/before_install.sh
+
+commit ee0844fd1dc2561acdcd145801a5c714a9e83d65
+Merge: 09ba7c4 258cb9c
+Author: Lalu Ondru <75995685+laluondru@users.noreply.github.com>
+Date:   Wed Mar 16 21:16:42 2022 +0530
+
+    Merge pull request #1 from laluondru/master
+    
+    third commit
+
+commit 258cb9cd363411c5b7f28c0e42ee373e44b207e3
+Author: manasavungarala <manasa.veena67@gmail.com>
+Date:   Wed Mar 16 21:15:38 2022 +0530
+
+    third commit
+
+diff --git a/rest.txt b/rest.txt
+new file mode 100644
+index 0000000..e69de29
+
+commit 09ba7c44529f2a6ca6d5d0a8cec82271e304952f
+Author: manasavungarala <manasa.veena67@gmail.com>
+Date:   Wed Mar 16 21:08:01 2022 +0530
+
+    seconf commit
+
+diff --git a/.DS_Store b/.DS_Store
+new file mode 100644
+index 0000000..21054d9
+Binary files /dev/null and b/.DS_Store differ
+diff --git a/empty.txt b/empty.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/.DS_Store b/src/.DS_Store
+new file mode 100644
+index 0000000..468968a
+Binary files /dev/null and b/src/.DS_Store differ
+
+commit 47bdd27c52139455c941fcec3f681e5dc44465fd
+Author: manasavungarala <manasa.veena67@gmail.com>
+Date:   Fri Mar 11 19:12:22 2022 +0530
+
+    First commit
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..153c933
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,29 @@
++HELP.md
++/target/
++!.mvn/wrapper/maven-wrapper.jar
++
++### STS ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++
++### IntelliJ IDEA ###
++.idea
++*.iws
++*.iml
++*.ipr
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++/build/
++
++### VS Code ###
++.vscode/
+diff --git a/.mvn/wrapper/MavenWrapperDownloader.java b/.mvn/wrapper/MavenWrapperDownloader.java
+new file mode 100644
+index 0000000..72308aa
+--- /dev/null
++++ b/.mvn/wrapper/MavenWrapperDownloader.java
+@@ -0,0 +1,114 @@
++/*
++Licensed to the Apache Software Foundation (ASF) under one
++or more contributor license agreements.  See the NOTICE file
++distributed with this work for additional information
++regarding copyright ownership.  The ASF licenses this file
++to you under the Apache License, Version 2.0 (the
++"License"); you may not use this file except in compliance
++with the License.  You may obtain a copy of the License at
++
++  https://www.apache.org/licenses/LICENSE-2.0
++
++Unless required by applicable law or agreed to in writing,
++software distributed under the License is distributed on an
++"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
++KIND, either express or implied.  See the License for the
++specific language governing permissions and limitations
++under the License.
++*/
++
++import java.io.File;
++import java.io.FileInputStream;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.net.URL;
++import java.nio.channels.Channels;
++import java.nio.channels.ReadableByteChannel;
++import java.util.Properties;
++
++public class MavenWrapperDownloader {
++
++    /**
++     * Default URL to download the maven-wrapper.jar from, if no 'downloadUrl' is provided.
++     */
++    private static final String DEFAULT_DOWNLOAD_URL =
++            "https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/0.4.2/maven-wrapper-0.4.2.jar";
++
++    /**
++     * Path to the maven-wrapper.properties file, which might contain a downloadUrl property to
++     * use instead of the default one.
++     */
++    private static final String MAVEN_WRAPPER_PROPERTIES_PATH =
++            ".mvn/wrapper/maven-wrapper.properties";
++
++    /**
++     * Path where the maven-wrapper.jar will be saved to.
++     */
++    private static final String MAVEN_WRAPPER_JAR_PATH =
++            ".mvn/wrapper/maven-wrapper.jar";
++
++    /**
++     * Name of the property which should be used to override the default download url for the wrapper.
++     */
++    private static final String PROPERTY_NAME_WRAPPER_URL = "wrapperUrl";
++
++    public static void main(String args[]) {
++        System.out.println("- Downloader started");
++        File baseDirectory = new File(args[0]);
++        System.out.println("- Using base directory: " + baseDirectory.getAbsolutePath());
++
++        // If the maven-wrapper.properties exists, read it and check if it contains a custom
++        // wrapperUrl parameter.
++        File mavenWrapperPropertyFile = new File(baseDirectory, MAVEN_WRAPPER_PROPERTIES_PATH);
++        String url = DEFAULT_DOWNLOAD_URL;
++        if(mavenWrapperPropertyFile.exists()) {
++            FileInputStream mavenWrapperPropertyFileInputStream = null;
++            try {
++                mavenWrapperPropertyFileInputStream = new FileInputStream(mavenWrapperPropertyFile);
++                Properties mavenWrapperProperties = new Properties();
++                mavenWrapperProperties.load(mavenWrapperPropertyFileInputStream);
++                url = mavenWrapperProperties.getProperty(PROPERTY_NAME_WRAPPER_URL, url);
++            } catch (IOException e) {
++                System.out.println("- ERROR loading '" + MAVEN_WRAPPER_PROPERTIES_PATH + "'");
++            } finally {
++                try {
++                    if(mavenWrapperPropertyFileInputStream != null) {
++                        mavenWrapperPropertyFileInputStream.close();
++                    }
++                } catch (IOException e) {
++                    // Ignore ...
++                }
++            }
++        }
++        System.out.println("- Downloading from: : " + url);
++
++        File outputFile = new File(baseDirectory.getAbsolutePath(), MAVEN_WRAPPER_JAR_PATH);
++        if(!outputFile.getParentFile().exists()) {
++            if(!outputFile.getParentFile().mkdirs()) {
++                System.out.println(
++                        "- ERROR creating output direcrory '" + outputFile.getParentFile().getAbsolutePath() + "'");
++            }
++        }
++        System.out.println("- Downloading to: " + outputFile.getAbsolutePath());
++        try {
++            downloadFileFromURL(url, outputFile);
++            System.out.println("Done");
++            System.exit(0);
++        } catch (Throwable e) {
++            System.out.println("- Error downloading");
++            e.printStackTrace();
++            System.exit(1);
++        }
++    }
++
++    private static void downloadFileFromURL(String urlString, File destination) throws Exception {
++        URL website = new URL(urlString);
++        ReadableByteChannel rbc;
++        rbc = Channels.newChannel(website.openStream());
++        FileOutputStream fos = new FileOutputStream(destination);
++        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
++        fos.close();
++        rbc.close();
++    }
++
++}
+diff --git a/.mvn/wrapper/maven-wrapper.jar b/.mvn/wrapper/maven-wrapper.jar
+new file mode 100644
+index 0000000..01e6799
+Binary files /dev/null and b/.mvn/wrapper/maven-wrapper.jar differ
+diff --git a/.mvn/wrapper/maven-wrapper.properties b/.mvn/wrapper/maven-wrapper.properties
+new file mode 100644
+index 0000000..cd0d451
+--- /dev/null
++++ b/.mvn/wrapper/maven-wrapper.properties
+@@ -0,0 +1 @@
++distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.6.0/apache-maven-3.6.0-bin.zip
+diff --git a/appspec.yml b/appspec.yml
+new file mode 100644
+index 0000000..8ccca60
+--- /dev/null
++++ b/appspec.yml
+@@ -0,0 +1,24 @@
++
++version: 0.0
++os: linux
++files:
++  - source: target/ccdemo.war
++    destination: /usr/share/tomcat8/webapps/
++hooks:
++  BeforeInstall:
++    - location: scripts/before_install.sh
++      timeout: 300
++      runas: root
++  AfterInstall:
++    - location: scripts/after_install.sh
++      timeout: 300
++      runas: root
++  ApplicationStart:
++    - location: scripts/start_server.sh
++      timeout: 300
++      runas: root
++  ApplicationStop:
++    - location: scripts/stop_server.sh
++      timeout: 300
++      runas: root
++
+diff --git a/buildspec.yml b/buildspec.yml
+new file mode 100644
+index 0000000..ab6bf31
+--- /dev/null
++++ b/buildspec.yml
+@@ -0,0 +1,24 @@
++version: 0.2
++
++phases:
++  install:
++    commands:
++      - echo Nothing to do in the install phase...
++  pre_build:
++    commands:
++      - echo Nothing to do in the pre_build phase...
++  build:
++    commands:
++      - echo Build started on `date`
++      - mvn install
++  post_build:
++    commands:
++      - echo Build completed on `date`
++artifacts:
++  files:
++    - 'target/ccdemo.war'
++    - 'appspec.yml'
++    - 'scripts/before_install.sh'
++    - 'scripts/after_install.sh'    
++    - 'scripts/start_server.sh'
++    - 'scripts/stop_server.sh'    
+\ No newline at end of file
+diff --git a/mvnw b/mvnw
+new file mode 100644
+index 0000000..8b9da3b
+--- /dev/null
++++ b/mvnw
+@@ -0,0 +1,286 @@
++#!/bin/sh
++# ----------------------------------------------------------------------------
++# Licensed to the Apache Software Foundation (ASF) under one
++# or more contributor license agreements.  See the NOTICE file
++# distributed with this work for additional information
++# regarding copyright ownership.  The ASF licenses this file
++# to you under the Apache License, Version 2.0 (the
++# "License"); you may not use this file except in compliance
++# with the License.  You may obtain a copy of the License at
++#
++#    https://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing,
++# software distributed under the License is distributed on an
++# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
++# KIND, either express or implied.  See the License for the
++# specific language governing permissions and limitations
++# under the License.
++# ----------------------------------------------------------------------------
++
++# ----------------------------------------------------------------------------
++# Maven2 Start Up Batch script
++#
++# Required ENV vars:
++# ------------------
++#   JAVA_HOME - location of a JDK home dir
++#
++# Optional ENV vars
++# -----------------
++#   M2_HOME - location of maven2's installed home dir
++#   MAVEN_OPTS - parameters passed to the Java VM when running Maven
++#     e.g. to debug Maven itself, use
++#       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
++#   MAVEN_SKIP_RC - flag to disable loading of mavenrc files
++# ----------------------------------------------------------------------------
++
++if [ -z "$MAVEN_SKIP_RC" ] ; then
++
++  if [ -f /etc/mavenrc ] ; then
++    . /etc/mavenrc
++  fi
++
++  if [ -f "$HOME/.mavenrc" ] ; then
++    . "$HOME/.mavenrc"
++  fi
++
++fi
++
++# OS specific support.  $var _must_ be set to either true or false.
++cygwin=false;
++darwin=false;
++mingw=false
++case "`uname`" in
++  CYGWIN*) cygwin=true ;;
++  MINGW*) mingw=true;;
++  Darwin*) darwin=true
++    # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
++    # See https://developer.apple.com/library/mac/qa/qa1170/_index.html
++    if [ -z "$JAVA_HOME" ]; then
++      if [ -x "/usr/libexec/java_home" ]; then
++        export JAVA_HOME="`/usr/libexec/java_home`"
++      else
++        export JAVA_HOME="/Library/Java/Home"
++      fi
++    fi
++    ;;
++esac
++
++if [ -z "$JAVA_HOME" ] ; then
++  if [ -r /etc/gentoo-release ] ; then
++    JAVA_HOME=`java-config --jre-home`
++  fi
++fi
++
++if [ -z "$M2_HOME" ] ; then
++  ## resolve links - $0 may be a link to maven's home
++  PRG="$0"
++
++  # need this for relative symlinks
++  while [ -h "$PRG" ] ; do
++    ls=`ls -ld "$PRG"`
++    link=`expr "$ls" : '.*-> \(.*\)$'`
++    if expr "$link" : '/.*' > /dev/null; then
++      PRG="$link"
++    else
++      PRG="`dirname "$PRG"`/$link"
++    fi
++  done
++
++  saveddir=`pwd`
++
++  M2_HOME=`dirname "$PRG"`/..
++
++  # make it fully qualified
++  M2_HOME=`cd "$M2_HOME" && pwd`
++
++  cd "$saveddir"
++  # echo Using m2 at $M2_HOME
++fi
++
++# For Cygwin, ensure paths are in UNIX format before anything is touched
++if $cygwin ; then
++  [ -n "$M2_HOME" ] &&
++    M2_HOME=`cygpath --unix "$M2_HOME"`
++  [ -n "$JAVA_HOME" ] &&
++    JAVA_HOME=`cygpath --unix "$JAVA_HOME"`
++  [ -n "$CLASSPATH" ] &&
++    CLASSPATH=`cygpath --path --unix "$CLASSPATH"`
++fi
++
++# For Mingw, ensure paths are in UNIX format before anything is touched
++if $mingw ; then
++  [ -n "$M2_HOME" ] &&
++    M2_HOME="`(cd "$M2_HOME"; pwd)`"
++  [ -n "$JAVA_HOME" ] &&
++    JAVA_HOME="`(cd "$JAVA_HOME"; pwd)`"
++  # TODO classpath?
++fi
++
++if [ -z "$JAVA_HOME" ]; then
++  javaExecutable="`which javac`"
++  if [ -n "$javaExecutable" ] && ! [ "`expr \"$javaExecutable\" : '\([^ ]*\)'`" = "no" ]; then
++    # readlink(1) is not available as standard on Solaris 10.
++    readLink=`which readlink`
++    if [ ! `expr "$readLink" : '\([^ ]*\)'` = "no" ]; then
++      if $darwin ; then
++        javaHome="`dirname \"$javaExecutable\"`"
++        javaExecutable="`cd \"$javaHome\" && pwd -P`/javac"
++      else
++        javaExecutable="`readlink -f \"$javaExecutable\"`"
++      fi
++      javaHome="`dirname \"$javaExecutable\"`"
++      javaHome=`expr "$javaHome" : '\(.*\)/bin'`
++      JAVA_HOME="$javaHome"
++      export JAVA_HOME
++    fi
++  fi
++fi
++
++if [ -z "$JAVACMD" ] ; then
++  if [ -n "$JAVA_HOME"  ] ; then
++    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
++      # IBM's JDK on AIX uses strange locations for the executables
++      JAVACMD="$JAVA_HOME/jre/sh/java"
++    else
++      JAVACMD="$JAVA_HOME/bin/java"
++    fi
++  else
++    JAVACMD="`which java`"
++  fi
++fi
++
++if [ ! -x "$JAVACMD" ] ; then
++  echo "Error: JAVA_HOME is not defined correctly." >&2
++  echo "  We cannot execute $JAVACMD" >&2
++  exit 1
++fi
++
++if [ -z "$JAVA_HOME" ] ; then
++  echo "Warning: JAVA_HOME environment variable is not set."
++fi
++
++CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher
++
++# traverses directory structure from process work directory to filesystem root
++# first directory with .mvn subdirectory is considered project base directory
++find_maven_basedir() {
++
++  if [ -z "$1" ]
++  then
++    echo "Path not specified to find_maven_basedir"
++    return 1
++  fi
++
++  basedir="$1"
++  wdir="$1"
++  while [ "$wdir" != '/' ] ; do
++    if [ -d "$wdir"/.mvn ] ; then
++      basedir=$wdir
++      break
++    fi
++    # workaround for JBEAP-8937 (on Solaris 10/Sparc)
++    if [ -d "${wdir}" ]; then
++      wdir=`cd "$wdir/.."; pwd`
++    fi
++    # end of workaround
++  done
++  echo "${basedir}"
++}
++
++# concatenates all lines of a file
++concat_lines() {
++  if [ -f "$1" ]; then
++    echo "$(tr -s '\n' ' ' < "$1")"
++  fi
++}
++
++BASE_DIR=`find_maven_basedir "$(pwd)"`
++if [ -z "$BASE_DIR" ]; then
++  exit 1;
++fi
++
++##########################################################################################
++# Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
++# This allows using the maven wrapper in projects that prohibit checking in binary data.
++##########################################################################################
++if [ -r "$BASE_DIR/.mvn/wrapper/maven-wrapper.jar" ]; then
++    if [ "$MVNW_VERBOSE" = true ]; then
++      echo "Found .mvn/wrapper/maven-wrapper.jar"
++    fi
++else
++    if [ "$MVNW_VERBOSE" = true ]; then
++      echo "Couldn't find .mvn/wrapper/maven-wrapper.jar, downloading it ..."
++    fi
++    jarUrl="https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/0.4.2/maven-wrapper-0.4.2.jar"
++    while IFS="=" read key value; do
++      case "$key" in (wrapperUrl) jarUrl="$value"; break ;;
++      esac
++    done < "$BASE_DIR/.mvn/wrapper/maven-wrapper.properties"
++    if [ "$MVNW_VERBOSE" = true ]; then
++      echo "Downloading from: $jarUrl"
++    fi
++    wrapperJarPath="$BASE_DIR/.mvn/wrapper/maven-wrapper.jar"
++
++    if command -v wget > /dev/null; then
++        if [ "$MVNW_VERBOSE" = true ]; then
++          echo "Found wget ... using wget"
++        fi
++        wget "$jarUrl" -O "$wrapperJarPath"
++    elif command -v curl > /dev/null; then
++        if [ "$MVNW_VERBOSE" = true ]; then
++          echo "Found curl ... using curl"
++        fi
++        curl -o "$wrapperJarPath" "$jarUrl"
++    else
++        if [ "$MVNW_VERBOSE" = true ]; then
++          echo "Falling back to using Java to download"
++        fi
++        javaClass="$BASE_DIR/.mvn/wrapper/MavenWrapperDownloader.java"
++        if [ -e "$javaClass" ]; then
++            if [ ! -e "$BASE_DIR/.mvn/wrapper/MavenWrapperDownloader.class" ]; then
++                if [ "$MVNW_VERBOSE" = true ]; then
++                  echo " - Compiling MavenWrapperDownloader.java ..."
++                fi
++                # Compiling the Java class
++                ("$JAVA_HOME/bin/javac" "$javaClass")
++            fi
++            if [ -e "$BASE_DIR/.mvn/wrapper/MavenWrapperDownloader.class" ]; then
++                # Running the downloader
++                if [ "$MVNW_VERBOSE" = true ]; then
++                  echo " - Running MavenWrapperDownloader.java ..."
++                fi
++                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$MAVEN_PROJECTBASEDIR")
++            fi
++        fi
++    fi
++fi
++##########################################################################################
++# End of extension
++##########################################################################################
++
++export MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}
++if [ "$MVNW_VERBOSE" = true ]; then
++  echo $MAVEN_PROJECTBASEDIR
++fi
++MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
++
++# For Cygwin, switch paths to Windows format before running java
++if $cygwin; then
++  [ -n "$M2_HOME" ] &&
++    M2_HOME=`cygpath --path --windows "$M2_HOME"`
++  [ -n "$JAVA_HOME" ] &&
++    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
++  [ -n "$CLASSPATH" ] &&
++    CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
++  [ -n "$MAVEN_PROJECTBASEDIR" ] &&
++    MAVEN_PROJECTBASEDIR=`cygpath --path --windows "$MAVEN_PROJECTBASEDIR"`
++fi
++
++WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
++
++exec "$JAVACMD" \
++  $MAVEN_OPTS \
++  -classpath "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar" \
++  "-Dmaven.home=${M2_HOME}" "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
++  ${WRAPPER_LAUNCHER} $MAVEN_CONFIG "$@"
+diff --git a/mvnw.cmd b/mvnw.cmd
+new file mode 100644
+index 0000000..fef5a8f
+--- /dev/null
++++ b/mvnw.cmd
+@@ -0,0 +1,161 @@
++@REM ----------------------------------------------------------------------------
++@REM Licensed to the Apache Software Foundation (ASF) under one
++@REM or more contributor license agreements.  See the NOTICE file
++@REM distributed with this work for additional information
++@REM regarding copyright ownership.  The ASF licenses this file
++@REM to you under the Apache License, Version 2.0 (the
++@REM "License"); you may not use this file except in compliance
++@REM with the License.  You may obtain a copy of the License at
++@REM
++@REM    https://www.apache.org/licenses/LICENSE-2.0
++@REM
++@REM Unless required by applicable law or agreed to in writing,
++@REM software distributed under the License is distributed on an
++@REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
++@REM KIND, either express or implied.  See the License for the
++@REM specific language governing permissions and limitations
++@REM under the License.
++@REM ----------------------------------------------------------------------------
++
++@REM ----------------------------------------------------------------------------
++@REM Maven2 Start Up Batch script
++@REM
++@REM Required ENV vars:
++@REM JAVA_HOME - location of a JDK home dir
++@REM
++@REM Optional ENV vars
++@REM M2_HOME - location of maven2's installed home dir
++@REM MAVEN_BATCH_ECHO - set to 'on' to enable the echoing of the batch commands
++@REM MAVEN_BATCH_PAUSE - set to 'on' to wait for a key stroke before ending
++@REM MAVEN_OPTS - parameters passed to the Java VM when running Maven
++@REM     e.g. to debug Maven itself, use
++@REM set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
++@REM MAVEN_SKIP_RC - flag to disable loading of mavenrc files
++@REM ----------------------------------------------------------------------------
++
++@REM Begin all REM lines with '@' in case MAVEN_BATCH_ECHO is 'on'
++@echo off
++@REM set title of command window
++title %0
++@REM enable echoing my setting MAVEN_BATCH_ECHO to 'on'
++@if "%MAVEN_BATCH_ECHO%" == "on"  echo %MAVEN_BATCH_ECHO%
++
++@REM set %HOME% to equivalent of $HOME
++if "%HOME%" == "" (set "HOME=%HOMEDRIVE%%HOMEPATH%")
++
++@REM Execute a user defined script before this one
++if not "%MAVEN_SKIP_RC%" == "" goto skipRcPre
++@REM check for pre script, once with legacy .bat ending and once with .cmd ending
++if exist "%HOME%\mavenrc_pre.bat" call "%HOME%\mavenrc_pre.bat"
++if exist "%HOME%\mavenrc_pre.cmd" call "%HOME%\mavenrc_pre.cmd"
++:skipRcPre
++
++@setlocal
++
++set ERROR_CODE=0
++
++@REM To isolate internal variables from possible post scripts, we use another setlocal
++@setlocal
++
++@REM ==== START VALIDATION ====
++if not "%JAVA_HOME%" == "" goto OkJHome
++
++echo.
++echo Error: JAVA_HOME not found in your environment. >&2
++echo Please set the JAVA_HOME variable in your environment to match the >&2
++echo location of your Java installation. >&2
++echo.
++goto error
++
++:OkJHome
++if exist "%JAVA_HOME%\bin\java.exe" goto init
++
++echo.
++echo Error: JAVA_HOME is set to an invalid directory. >&2
++echo JAVA_HOME = "%JAVA_HOME%" >&2
++echo Please set the JAVA_HOME variable in your environment to match the >&2
++echo location of your Java installation. >&2
++echo.
++goto error
++
++@REM ==== END VALIDATION ====
++
++:init
++
++@REM Find the project base dir, i.e. the directory that contains the folder ".mvn".
++@REM Fallback to current working directory if not found.
++
++set MAVEN_PROJECTBASEDIR=%MAVEN_BASEDIR%
++IF NOT "%MAVEN_PROJECTBASEDIR%"=="" goto endDetectBaseDir
++
++set EXEC_DIR=%CD%
++set WDIR=%EXEC_DIR%
++:findBaseDir
++IF EXIST "%WDIR%"\.mvn goto baseDirFound
++cd ..
++IF "%WDIR%"=="%CD%" goto baseDirNotFound
++set WDIR=%CD%
++goto findBaseDir
++
++:baseDirFound
++set MAVEN_PROJECTBASEDIR=%WDIR%
++cd "%EXEC_DIR%"
++goto endDetectBaseDir
++
++:baseDirNotFound
++set MAVEN_PROJECTBASEDIR=%EXEC_DIR%
++cd "%EXEC_DIR%"
++
++:endDetectBaseDir
++
++IF NOT EXIST "%MAVEN_PROJECTBASEDIR%\.mvn\jvm.config" goto endReadAdditionalConfig
++
++@setlocal EnableExtensions EnableDelayedExpansion
++for /F "usebackq delims=" %%a in ("%MAVEN_PROJECTBASEDIR%\.mvn\jvm.config") do set JVM_CONFIG_MAVEN_PROPS=!JVM_CONFIG_MAVEN_PROPS! %%a
++@endlocal & set JVM_CONFIG_MAVEN_PROPS=%JVM_CONFIG_MAVEN_PROPS%
++
++:endReadAdditionalConfig
++
++SET MAVEN_JAVA_EXE="%JAVA_HOME%\bin\java.exe"
++set WRAPPER_JAR="%MAVEN_PROJECTBASEDIR%\.mvn\wrapper\maven-wrapper.jar"
++set WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
++
++set DOWNLOAD_URL="https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/0.4.2/maven-wrapper-0.4.2.jar"
++FOR /F "tokens=1,2 delims==" %%A IN (%MAVEN_PROJECTBASEDIR%\.mvn\wrapper\maven-wrapper.properties) DO (
++	IF "%%A"=="wrapperUrl" SET DOWNLOAD_URL=%%B 
++)
++
++@REM Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
++@REM This allows using the maven wrapper in projects that prohibit checking in binary data.
++if exist %WRAPPER_JAR% (
++    echo Found %WRAPPER_JAR%
++) else (
++    echo Couldn't find %WRAPPER_JAR%, downloading it ...
++	echo Downloading from: %DOWNLOAD_URL%
++    powershell -Command "(New-Object Net.WebClient).DownloadFile('%DOWNLOAD_URL%', '%WRAPPER_JAR%')"
++    echo Finished downloading %WRAPPER_JAR%
++)
++@REM End of extension
++
++%MAVEN_JAVA_EXE% %JVM_CONFIG_MAVEN_PROPS% %MAVEN_OPTS% %MAVEN_DEBUG_OPTS% -classpath %WRAPPER_JAR% "-Dmaven.multiModuleProjectDirectory=%MAVEN_PROJECTBASEDIR%" %WRAPPER_LAUNCHER% %MAVEN_CONFIG% %*
++if ERRORLEVEL 1 goto error
++goto end
++
++:error
++set ERROR_CODE=1
++
++:end
++@endlocal & set ERROR_CODE=%ERROR_CODE%
++
++if not "%MAVEN_SKIP_RC%" == "" goto skipRcPost
++@REM check for post script, once with legacy .bat ending and once with .cmd ending
++if exist "%HOME%\mavenrc_post.bat" call "%HOME%\mavenrc_post.bat"
++if exist "%HOME%\mavenrc_post.cmd" call "%HOME%\mavenrc_post.cmd"
++:skipRcPost
++
++@REM pause the script if MAVEN_BATCH_PAUSE is set to 'on'
++if "%MAVEN_BATCH_PAUSE%" == "on" pause
++
++if "%MAVEN_TERMINATE_CMD%" == "on" exit %ERROR_CODE%
++
++exit /B %ERROR_CODE%
+diff --git a/pom.xml b/pom.xml
+new file mode 100644
+index 0000000..cda6081
+--- /dev/null
++++ b/pom.xml
+@@ -0,0 +1,50 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++	<modelVersion>4.0.0</modelVersion>
++	<parent>
++		<groupId>org.springframework.boot</groupId>
++		<artifactId>spring-boot-starter-parent</artifactId>
++		<version>2.1.4.RELEASE</version>
++		<relativePath/> <!-- lookup parent from repository -->
++	</parent>
++	<groupId>com.stacksimplify</groupId>
++	<artifactId>ccdemo</artifactId>
++	<version>0.0.1-SNAPSHOT</version>
++	<packaging>war</packaging>
++	<name>ccdemo</name>
++	<description>Demo project for Spring Boot</description>
++
++	<properties>
++		<java.version>1.8</java.version>
++	</properties>
++
++	<dependencies>
++		<dependency>
++			<groupId>org.springframework.boot</groupId>
++			<artifactId>spring-boot-starter-web</artifactId>
++		</dependency>
++
++		<dependency>
++			<groupId>org.springframework.boot</groupId>
++			<artifactId>spring-boot-starter-tomcat</artifactId>
++			<scope>provided</scope>
++		</dependency>
++		<dependency>
++			<groupId>org.springframework.boot</groupId>
++			<artifactId>spring-boot-starter-test</artifactId>
++			<scope>test</scope>
++		</dependency>
++	</dependencies>
++
++	<build>
++		<plugins>
++			<plugin>
++				<groupId>org.springframework.boot</groupId>
++				<artifactId>spring-boot-maven-plugin</artifactId>
++			</plugin>
++		</plugins>
++		<finalName>${artifactId}</finalName>
++	</build>
++
++</project>
+diff --git a/scripts/after_install.sh b/scripts/after_install.sh
+new file mode 100644
+index 0000000..a7a272e
+--- /dev/null
++++ b/scripts/after_install.sh
+@@ -0,0 +1,3 @@
++
++#!/bin/bash
++#
+diff --git a/scripts/before_install.sh b/scripts/before_install.sh
+new file mode 100644
+index 0000000..fddf470
+--- /dev/null
++++ b/scripts/before_install.sh
+@@ -0,0 +1,2 @@
++#!/bin/bash
++rm -rf /usr/share/tomcat8/webapps/ccdemo*
+diff --git a/scripts/start_server.sh b/scripts/start_server.sh
+new file mode 100644
+index 0000000..ee274fe
+--- /dev/null
++++ b/scripts/start_server.sh
+@@ -0,0 +1,3 @@
++
++#!/bin/bash
++service tomcat8 start
+diff --git a/scripts/stop_server.sh b/scripts/stop_server.sh
+new file mode 100644
+index 0000000..3348818
+--- /dev/null
++++ b/scripts/stop_server.sh
+@@ -0,0 +1,6 @@
++
++#!/bin/bash
++isExistApp=`pgrep java`
++if [[ -n  $isExistApp ]]; then
++   service tomcat8 stop
++fi
+diff --git a/src/main/java/com/stacksimplify/ccdemo/CcdemoApplication.java b/src/main/java/com/stacksimplify/ccdemo/CcdemoApplication.java
+new file mode 100644
+index 0000000..b2d756a
+--- /dev/null
++++ b/src/main/java/com/stacksimplify/ccdemo/CcdemoApplication.java
+@@ -0,0 +1,13 @@
++package com.stacksimplify.ccdemo;
++
++import org.springframework.boot.SpringApplication;
++import org.springframework.boot.autoconfigure.SpringBootApplication;
++
++@SpringBootApplication
++public class CcdemoApplication {
++
++	public static void main(String[] args) {
++		SpringApplication.run(CcdemoApplication.class, args);
++	}
++
++}
+diff --git a/src/main/java/com/stacksimplify/ccdemo/HelloWorldController.java b/src/main/java/com/stacksimplify/ccdemo/HelloWorldController.java
+new file mode 100644
+index 0000000..7da4c99
+--- /dev/null
++++ b/src/main/java/com/stacksimplify/ccdemo/HelloWorldController.java
+@@ -0,0 +1,14 @@
++package com.stacksimplify.ccdemo;
++
++import org.springframework.web.bind.annotation.GetMapping;
++import org.springframework.web.bind.annotation.RestController;
++
++@RestController
++public class HelloWorldController {
++
++	@GetMapping("/hello")
++	public String sayHello() {
++		return "Manual Approval Stage and Prod Deployment - v1";
++	}
++	
++}
+diff --git a/src/main/java/com/stacksimplify/ccdemo/ServletInitializer.java b/src/main/java/com/stacksimplify/ccdemo/ServletInitializer.java
+new file mode 100644
+index 0000000..f286c2b
+--- /dev/null
++++ b/src/main/java/com/stacksimplify/ccdemo/ServletInitializer.java
+@@ -0,0 +1,13 @@
++package com.stacksimplify.ccdemo;
++
++import org.springframework.boot.builder.SpringApplicationBuilder;
++import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
++
++public class ServletInitializer extends SpringBootServletInitializer {
++
++	@Override
++	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
++		return application.sources(CcdemoApplication.class);
++	}
++
++}
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/src/main/resources/application.properties
+@@ -0,0 +1 @@
++
+diff --git a/src/test/java/com/stacksimplify/ccdemo/CcdemoApplicationTests.java b/src/test/java/com/stacksimplify/ccdemo/CcdemoApplicationTests.java
+new file mode 100644
+index 0000000..2704e94
+--- /dev/null
++++ b/src/test/java/com/stacksimplify/ccdemo/CcdemoApplicationTests.java
+@@ -0,0 +1,16 @@
++package com.stacksimplify.ccdemo;
++
++import org.junit.Test;
++import org.junit.runner.RunWith;
++import org.springframework.boot.test.context.SpringBootTest;
++import org.springframework.test.context.junit4.SpringRunner;
++
++@RunWith(SpringRunner.class)
++@SpringBootTest
++public class CcdemoApplicationTests {
++
++	@Test
++	public void contextLoads() {
++	}
++
++}
