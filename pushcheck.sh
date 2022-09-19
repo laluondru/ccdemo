@@ -67,14 +67,18 @@ then
        else
          echo "Abort not happened, Please use git cherry-pick --abort"
        fi
+<<<<<<< HEAD
 elif VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "Merge conflict")
+=======
+elif [[ ABORT=$(git cherry-pick --abort) && VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "Merge conflict") ]]
+>>>>>>> edc78eb (16th commit)
 then
     echo "it has merge conflicts"
     git cherry-pick --abort
     exit
-elif VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "no changes added to commit")
+elif [[ ABORT=$(git cherry-pick --abort) && VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "no changes added to commit") ]]
 then
-    echo "${VALUE} -- no changes added to commit"    
+    echo "${VALUE} -- no changes added to commit"
 else
     git push origin devops-pipeline
     echo "All commit are pushed"
