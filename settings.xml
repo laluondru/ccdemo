@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<settings>
- <servers>
-   <server>
-    <id>cc-demo-maven</id>
-    <username>aws</username>
-    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
-  </server>
-
-  </servers>
-
-  
-</settings>
+1
