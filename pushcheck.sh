@@ -47,16 +47,16 @@ then
           do
                 if PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'nothing to commit' 2>&1)
                 then
-                	   echo "BBBBBB: pushed " ${PUSHED}
+                	   echo "${EACH_COMMIT} : is not Pushed"
                      git cherry-pick --abort
                      exit 1
-                elif PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'Merge conflict' 2>&1)
+                elif [[ ABORT=$(git cherry-pick --abort) && PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'Merge conflict' 2>&1) ]]
                 then
                     echo ${EACH_COMMIT} have conflicts
                     git cherry-pick --abort
                     exit 1
                 else
-                    echo "pushing the changes"
+                    echo "${EACH_COMMIT} pushing the changes"
                     git push origin devops_pipeline
                 fi
           done
