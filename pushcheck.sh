@@ -23,7 +23,7 @@ main=407f9f7f4269f771226fbf97ccdec5298fe191a7
  #3   echo $main is pushed
 #fi
 #EOF
-
+git checkout devops-pipeline
 COMMMIT=(3f2bd5b042115f846022679b0d19395f9a3341e7 49e5f653052ff753ba14bb67655f74b9c85d1ec7 a7b4fc7300b778a42b1bc2c46b32a45a2d74ceeb)
 #COMMMIT=(407f9f7f4269f771226fbf97ccdec5298fe191a7)
 #726202b7421df797a73c0be6731bcb754684c67f
