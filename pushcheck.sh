@@ -49,16 +49,17 @@ then
                 then
                 	   echo "${EACH_COMMIT} : is not Pushed"
                      git cherry-pick --abort
-                     exit 1
+
                 elif [[ ABORT=$(git cherry-pick --abort) && PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'Merge conflict' 2>&1) ]]
                 then
                     echo ${EACH_COMMIT} have conflicts
                     git cherry-pick --abort
-                    exit 1
+
                 else
                     echo "${EACH_COMMIT} pushing the changes"
                     git push origin devops_pipeline
                 fi
+              break
           done
        elif [[ $n -eq 0 ]]
        then
