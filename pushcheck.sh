@@ -24,12 +24,12 @@ main=407f9f7f4269f771226fbf97ccdec5298fe191a7
 #fi
 #EOF
 
-#COMMMIT=(3f2bd5b042115f846022679b0d19395f9a3341e7 49e5f653052ff753ba14bb67655f74b9c85d1ec7)
-COMMMIT=(407f9f7f4269f771226fbf97ccdec5298fe191a7)
+COMMMIT=(3f2bd5b042115f846022679b0d19395f9a3341e7 49e5f653052ff753ba14bb67655f74b9c85d1ec7 a7b4fc7300b778a42b1bc2c46b32a45a2d74ceeb)
+#COMMMIT=(407f9f7f4269f771226fbf97ccdec5298fe191a7)
 #echo ${COMMMIT}
 echo "value"
 #VALUE=$(git cherry-pick {COMMMIT[@]} | grep -i "conflict")
-if VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "conflict")
+if VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "nothing to commit")
 then
    MESSAGE=$(cat .git/CHERRY_PICK_HEAD)
    echo "${MESSAGE} has conflicts"
@@ -39,23 +39,29 @@ then
    echo "The lenth of the strig is :" $n
    git cherry-pick --abort
    #if [[ ! -z "${ACTUALCOMM}" && "${ACTUALCOMM}" != " " ]]
-   if [[ $n -ne 0 ]]
-   #echo "AAAAA: " ${ACTUALCOMM}
-   then
-      if PUSHED=$(git cherry-pick ${ACTUALCOMM} | grep -i 'insertion' 2>&1)
-      then
-      	   echo "BBBBBB: pushed " ${PUSHED}
-           git push origin devops-pipeline
-      else
-          echo ${ACTUALCOMM} and {MESSAGE} both have conflicts
-      fi
-   elif [[ $n -eq 0 ]]
-   then
-      	echo "stopping the script"
-    	exit 1
-   else
-     echo "Abort not happened, Please use git cherry-pick --abort"
-   fi
+       if [[ $n -ne 0 ]]
+       #echo "AAAAA: " ${ACTUALCOMM}
+       then
+          if PUSHED=$(git cherry-pick ${ACTUALCOMM} | grep -i 'nothing to commit' 2>&1)
+          then
+          	   echo "BBBBBB: pushed " ${PUSHED}
+               git cherry-pick --abort
+          else
+              echo ${ACTUALCOMM} and {MESSAGE} both have conflicts
+              git cherr-pick --abort
+              exit 1
+          fi
+       elif [[ $n -eq 0 ]]
+       then
+          	echo "stopping the script"
+        	exit 1
+       else
+         echo "Abort not happened, Please use git cherry-pick --abort"
+       fi
+elif VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "Merge conflict")
+then
+    echo "it has merge conflicts"
+    exit 1
 else
     git push origin devops-pipeline
     echo "All commit are pushed"
