@@ -68,7 +68,11 @@ then
          echo "Abort not happened, Please use git cherry-pick --abort"
        fi
 <<<<<<< HEAD
+<<<<<<< HEAD
 elif VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "Merge conflict")
+=======
+elif [[ ABORT=$(git cherry-pick --abort) && VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "Merge conflict") ]]
+>>>>>>> edc78eb (16th commit)
 =======
 elif [[ ABORT=$(git cherry-pick --abort) && VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "Merge conflict") ]]
 >>>>>>> edc78eb (16th commit)
