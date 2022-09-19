@@ -59,7 +59,8 @@ then
                     echo "${EACH_COMMIT} pushing the changes"
                     git push origin devops_pipeline
                 fi
-              break
+
+              contiune
           done
        elif [[ $n -eq 0 ]]
        then
