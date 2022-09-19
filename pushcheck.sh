@@ -43,16 +43,23 @@ then
        if [[ $n -ne 0 ]]
        #echo "AAAAA: " ${ACTUALCOMM}
        then
-          if PUSHED=$(git cherry-pick ${ACTUALCOMM} | grep 'nothing to commit' 2>&1)
-          then
-          	   echo "BBBBBB: pushed " ${PUSHED}
-               git cherry-pick --abort
-               exit 1
-          else
-              echo ${ACTUALCOMM} and {MESSAGE} both have conflicts
-              git cherry-pick --abort
-              exit 1
-          fi
+          for EACH_COMMIT in ${ACTUALCOMM[@]}
+          do
+                if PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'nothing to commit' 2>&1)
+                then
+                	   echo "BBBBBB: pushed " ${PUSHED}
+                     git cherry-pick --abort
+                     exit 1
+                elif PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'Merge conflict' 2>&1)
+                then
+                    echo ${EACH_COMMIT} have conflicts
+                    git cherry-pick --abort
+                    exit 1
+                else
+                    echo "pushing the changes"
+                    git push origin devops_pipeline
+                fi
+          done
        elif [[ $n -eq 0 ]]
        then
           	echo "stopping the script"
