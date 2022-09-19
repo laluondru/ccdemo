@@ -23,28 +23,30 @@ main=407f9f7f4269f771226fbf97ccdec5298fe191a7
  #3   echo $main is pushed
 #fi
 #EOF
-git checkout devops-pipeline
-COMMMIT=(3f2bd5b042115f846022679b0d19395f9a3341e7 49e5f653052ff753ba14bb67655f74b9c85d1ec7 a7b4fc7300b778a42b1bc2c46b32a45a2d74ceeb)
+#git checkout devops-pipeline
+COMMIT=(3f2bd5b042115f846022679b0d19395f9a3341e7 49e5f653052ff753ba14bb67655f74b9c85d1ec7 a7b4fc7300b778a42b1bc2c46b32a45a2d74ceeb)
 #COMMMIT=(407f9f7f4269f771226fbf97ccdec5298fe191a7)
 #726202b7421df797a73c0be6731bcb754684c67f
 #echo ${COMMMIT}
 echo "value"
 #VALUE=$(git cherry-pick {COMMMIT[@]} | grep -i "conflict")
-if VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "nothing to commit")
+echo ${COMMIT[@]}
+if VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "nothing to commit")
 then
    MESSAGE=$(cat .git/CHERRY_PICK_HEAD)
    echo "${MESSAGE} has conflicts"
-   ACTUALCOMM=$(echo ${COMMMIT[@]} | sed -E 's/'${MESSAGE}'//' | sed -e 's/\ *$//g')
+   ACTUALCOMM=$(echo ${COMMIT[@]} | sed -E 's/'${MESSAGE}'//' | sed -e 's/\ *$//g')
    echo ${ACTUALCOMM}
    n=${#ACTUALCOMM}
    echo "The lenth of the strig is :" $n
    git cherry-pick --abort
    #if [[ ! -z "${ACTUALCOMM}" && "${ACTUALCOMM}" != " " ]]
        if [[ $n -ne 0 ]]
-       #echo "AAAAA: " ${ACTUALCOMM}
+       echo "AAAAA: " ${ACTUALCOMM}
        then
           for EACH_COMMIT in ${ACTUALCOMM[@]}
           do
+            echo $EACH_COMMIT
                 if PUSHED=$(git cherry-pick ${EACH_COMMIT} | grep 'nothing to commit' 2>&1)
                 then
                 	   echo "${EACH_COMMIT} : is not Pushed"
@@ -69,7 +71,7 @@ then
        else
          echo "Abort not happened, Please use git cherry-pick --abort"
        fi
-elif VALUE=$(git cherry-pick ${COMMMIT[@]} | grep -i "Merge conflict")
+elif VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "Merge conflict")
 then
     echo "it has merge conflicts"
     git cherry-pick --abort
