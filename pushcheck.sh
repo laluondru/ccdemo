@@ -75,7 +75,10 @@ elif VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "Merge conflict")
 then
     echo "it has merge conflicts"
     git cherry-pick --abort
-    exit 1
+    exit
+elif VALUE=$(git cherry-pick ${COMMIT[@]} | grep -i "no changes added to commit")
+then
+    echo "${VALUE} -- no changes added to commit"    
 else
     git push origin devops-pipeline
     echo "All commit are pushed"
