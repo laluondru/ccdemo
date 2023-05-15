@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_ccdemo_1684146419427-pr-trigger-input-set
+  identifier: Build_ccdemo_1684146419427prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: demoProject
+  pipeline:
+    identifier: Build_ccdemo_1684146419427
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
